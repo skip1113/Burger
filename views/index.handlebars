@@ -1,25 +1,75 @@
-<h1>Eat-Da-Burger!</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4" style="float: left;">
+            <h1>Eat-Da-Burger!</h1>
+            <h2>Created Burgers</h2>
+            <ul>
+                {{#each burgers}}
+                <li>
+                    <h3>
+                        {{this.id}} {{this.burger_name}}
+                        <button data-id="{{id}}" data-newdevour="{{devoured}}" class="devouring">
+                        {{#if devoured}} Devour It! {{/if}}
+                        </button>
+                        <button class="delete-burger" data-id="{{this.id}}">DELETE!</button>
+                    </h3>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h2>Create a Burger!</h2>
+            <form id="create-burger" class="create-form">
 
-<ul>
-    {{#each burgers}}
-        {{#unless devoured}}
-            {{> burgers/burger-block devoured=true}}
-        {{/unless}}
-    {{/each}}
-</ul>
-<ul>
-    {{#each burgers}}
-        {{#if devoured}}
-            {{> burgers/burger-block devoured=false}}
-        {{/if}}
-    {{/each}}
-</ul>
-<h2>Create a Burger!</h2>
-<form class="create-form">
+                <div class="form-group" style="overflow: auto;">
+                    <label for="ca">Burger:</label>
+                    <input type="text" id="ca" name="name">
+                </div>
+                <button type="submit">Add Da Burger</button>
+            </form>
+           
+        </div>
+        <div class="col-md-4" style="float: right; overflow: inheret;">
+            
+            <h2>Devoured Burgers</h2>
+            <ul>
+                {{#each burgers}}
+                    {{#if devoured}}
+                        {{> burgers devoured=true}}
+                    {{/if}}
+                {{/each}}
 
-    <div class="form-group">
-        <label for="ca">Burger:</label>
-        <input type="text" id="ca" name="name">
+            </ul>
+        </div>
     </div>
-    <button type="sumbit">Add Da Burger</button>
-</form>
+</div>
+
+<script type="text/javascript">
+$("#create-burger").on("submit", function(event) {
+    event.preventDefault();
+
+    var newBurger = {
+        name: $("#create-burger [name=name]").val().trim()
+    };
+    $.ajax("/api/burgers", {
+        type: "POST",
+        data: newBurger
+    }).then(
+        function() {
+            console.log("Created New Burger");
+            location.reload();
+        }
+    );
+});
+$(".devouring").on("click", function(event) {
+    var id = $(this).data("id");
+    var ate = $(this).data("newdevour");
+    $.ajax("/api/burgers/" + id, {
+        type: "PUT",
+        data: ate
+    }).then(function() {
+        console.log("Changed Devoured to true");
+        location.reload();
+    })
+})
+</script>

@@ -14,7 +14,7 @@ router.get("/", function(req, res) {
 });
 
 router.post("/api/burgers", function(req, res) {
-    burger.create([
+    burger.insertOne([
         "burger_name", "devoured"
     ],[
         req.body.name, req.body.devoure
@@ -38,3 +38,5 @@ router.put("/api/burgers/:id", function(req, res) {
     
     });
 });
+
+module.exports = router;
