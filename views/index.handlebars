@@ -5,15 +5,9 @@
             <h2>Created Burgers</h2>
             <ul>
                 {{#each burgers}}
-                <li>
-                    <h3>
-                        {{this.id}} {{this.burger_name}}
-                        <button data-id="{{id}}" data-newdevour="{{devoured}}" class="devouring">
-                        {{#if devoured}} Devour It! {{/if}}
-                        </button>
-                        <button class="delete-burger" data-id="{{this.id}}">DELETE!</button>
-                    </h3>
-                </li>
+                    {{#unless devoured}}
+                        {{> burgers/burger-block devoured=true}}
+                    {{/unless}}
                 {{/each}}
             </ul>
         </div>
@@ -31,11 +25,11 @@
         </div>
         <div class="col-md-4" style="float: right; overflow: inheret;">
             
-            <h2>Devoured Burgers</h2>
+            <h2>Devourings</h2>
             <ul>
                 {{#each burgers}}
                     {{#if devoured}}
-                        {{> burgers devoured=true}}
+                        {{> burgers/burger-block devoured=false}}
                     {{/if}}
                 {{/each}}
 
@@ -61,15 +55,30 @@ $("#create-burger").on("submit", function(event) {
         }
     );
 });
-$(".devouring").on("click", function(event) {
+$(".change-devour").on("click", function(event) {
     var id = $(this).data("id");
     var ate = $(this).data("newdevour");
+    var devouredState = {
+        devoured: ate
+    };
     $.ajax("/api/burgers/" + id, {
         type: "PUT",
-        data: ate
+        data: devouredState
     }).then(function() {
-        console.log("Changed Devoured to true");
+        console.log("Changed Devoured to true ", ate);
         location.reload();
     })
-})
+});
+
+$("#delBurg").on("click", function(event) {
+    var id = $(this).data("id");
+    $.ajax("/api/burgers/" + id, {
+        type: "DELETE"
+    }).then(
+        function() {
+            console.log("Deleted Burger: ", id);
+            location.reload();
+        }
+    );
+});
 </script>
