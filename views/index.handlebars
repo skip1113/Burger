@@ -1,17 +1,7 @@
+<h1>Eat Da Burger!</h1>
 <div class="container">
     <div class="row">
-        <div class="col-md-4" style="float: left;">
-            <h1>Eat-Da-Burger!</h1>
-            <h2>Created Burgers</h2>
-            <ul>
-                {{#each burgers}}
-                    {{#unless devoured}}
-                        {{> burgers/burger-block devoured=true}}
-                    {{/unless}}
-                {{/each}}
-            </ul>
-        </div>
-        <div class="col-md-4">
+        <div class="col-md-6" id="add-burg">
             <h2>Create a Burger!</h2>
             <form id="create-burger" class="create-form">
 
@@ -23,8 +13,18 @@
             </form>
            
         </div>
-        <div class="col-md-4" style="float: right; overflow: inheret;">
+        <div class="col-md-4" id="created">
             
+            <h2>Created Burgers</h2>
+            <ul>
+                {{#each burgers}}
+                    {{#unless devoured}}
+                        {{> burgers/burger-block devoured=true}}
+                    {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col-sm-4" id="devoured-burg">
             <h2>Devourings</h2>
             <ul>
                 {{#each burgers}}
@@ -35,7 +35,18 @@
 
             </ul>
         </div>
-    </div>
+        {{!-- <div class="col-md-4">
+            <h2>Create a Burger!</h2>
+            <form id="create-burger" class="create-form">
+
+                <div class="form-group" style="overflow: auto;">
+                    <label for="ca">Burger:</label>
+                    <input type="text" id="ca" name="name">
+                </div>
+                <button type="submit">Add Da Burger</button>
+            </form>
+           
+        </div> --}}
 </div>
 
 <script type="text/javascript">

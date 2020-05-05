@@ -1,0 +1,33 @@
+li {
+    background: #faebd7;
+    padding: 5px;
+    margin: 5px;
+}
+.label {
+    font-weight: bold;
+  }
+  
+  .create-update-form {
+    padding: 5px;
+    margin: 5px;
+    background: aqua;
+  }
+  
+  .form-group {
+    margin-bottom: 5px;
+  }
+#created {
+  float: left;
+  padding-left: 25px;
+}
+#devoured-burg{
+  float: right;
+  padding-right: 25px;
+}
+#add-burg{
+  text-align: center;
+}
+h1{
+  text-align: center;
+  padding-bottom: 10px;
+}
