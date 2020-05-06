@@ -1,6 +1,39 @@
+header {
+  background-image: url("https://www.chicagotribune.com/resizer/MAYQA8ni3XNis4g8NwR56yDZw2w=/1200x0/top/arc-anglerfish-arc2-prod-tronc.s3.amazonaws.com/public/KWSMXJUGY5AUTIWVE2NXZVRHSE.jpg");
+  background-position: center;
+  padding-top: 20px;
+  font-size: 40px;
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+  padding-bottom: 120px;
+  color: darkred;
+}
+#main-row {
+  background-image: url("https://images.freecreatives.com/wp-content/uploads/2017/01/Blank-Chalkboard-Menu-Design.jpg");
+  margin-left: 0.5px;
+  margin-right: 0.5px;
+  padding-bottom: 300px;
+}
+#burger-title{
+  font-weight: bolder;
+  font-size: 25px;
+}
+#add-button {
+  margin-left: 50px;
+}
+#ca{
+  padding-right: 30px;
+  padding-bottom: 30px;
+}
+h2 {
+  color: white;
+  text-align: center;
+  padding-top: 20px;
+  font-family: 'Luckiest Guy', cursive;
+}
 li {
     background: #faebd7;
-    padding: 5px;
+    padding: 10px;
     margin: 5px;
 }
 .label {
@@ -26,6 +59,11 @@ li {
 }
 #add-burg{
   text-align: center;
+}
+#first-create {
+  color: black;
+  font-family: 'Dancing Script', cursive;
+  font-weight: bolder;
 }
 h1{
   text-align: center;
