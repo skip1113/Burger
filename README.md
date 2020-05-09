@@ -1,6 +1,6 @@
 # Burger
 ## Link to deployed Github: https://github.com/skip1113/burger
-## Link to deployed Heroku:
+## Link to deployed Heroku: https://hidden-chamber-83537.herokuapp.com/
 
 ## Description
 This is a restaurant app, burger logger with MySQL, Node, Express, Handlebars and homemade ORM.
