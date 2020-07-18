@@ -20,6 +20,9 @@ Click the link deployed to Heroku ready to have a burger input into the form.
 * Run node server.js in your terminal.
 * Open your browser and search "http:/localhost:"PORT#"/
 
+![](/public/assets/images/burger-img.png)
+
+
 ### Organization:
 * Started with folders config holding the connection to Mysql, and orm.js with orm functions for Mysql tables.
 * Controller folder containing Express, and routes.
